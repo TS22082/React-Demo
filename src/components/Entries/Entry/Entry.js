@@ -9,7 +9,7 @@ function Entry(props) {
         <div className="text-center">
           <button
             onClick={() => props.deleteFromArray(props._id)}
-            class="btn btn-danger m-2"
+            class="btn btn-outline-danger m-2"
             style={{ width: "200px" }}
           >
             Delete

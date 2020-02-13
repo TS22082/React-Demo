@@ -1,6 +1,8 @@
 import React from "react";
 
 function Form(props) {
+  //if the category is empty it will make the border red, otherwise
+  //it will be green
   function checkNotEmpty(category) {
     if (category.length > 0) {
       return "form-control border border-success";
@@ -9,8 +11,10 @@ function Form(props) {
     }
   }
 
+  //this function will disable or enable the button
+  //based on whether or not text or sub values are empty
   function verifySubmit() {
-    if (!props.entryText || !props.entrySub) {
+    if (!props.text || !props.subject) {
       return true;
     } else {
       return false;
@@ -25,9 +29,9 @@ function Form(props) {
           onChange={props.update}
           placeholder="Add Subject"
           name="subject"
-          value={props.entrySub}
+          value={props.subject}
           type="text"
-          class={checkNotEmpty(props.entrySub)}
+          class={checkNotEmpty(props.subject)}
         />
       </div>
       <div class="form-group">
@@ -36,8 +40,8 @@ function Form(props) {
           onChange={props.update}
           placeholder="Add Text"
           name="text"
-          value={props.entryText}
-          class={checkNotEmpty(props.entryText)}
+          value={props.text}
+          class={checkNotEmpty(props.text)}
           rows="3"
         ></textarea>
       </div>
