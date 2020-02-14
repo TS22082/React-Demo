@@ -23,7 +23,7 @@ function Form(props) {
 
   return (
     <form>
-      <div class="form-group">
+      <div className="form-group">
         <label>Subject</label>
         <input
           onChange={props.update}
@@ -31,24 +31,24 @@ function Form(props) {
           name="subject"
           value={props.subject}
           type="text"
-          class={checkNotEmpty(props.subject)}
+          className={checkNotEmpty(props.subject)}
         />
       </div>
-      <div class="form-group">
+      <div className="form-group">
         <label>Text</label>
         <textarea
           onChange={props.update}
           placeholder="Add Text"
           name="text"
           value={props.text}
-          class={checkNotEmpty(props.text)}
+          className={checkNotEmpty(props.text)}
           rows="3"
         ></textarea>
       </div>
       <button
         onClick={() => props.add()}
         type="button"
-        class={"btn btn-primary"}
+        className={"btn btn-primary"}
         disabled={verifySubmit()}
       >
         Submit

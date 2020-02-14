@@ -35,17 +35,20 @@ function App() {
     modifyEntries({ ...entries, [e.target.name]: e.target.value });
   };
 
-  //delete from entryArray by decontructing the
-  //arrays then using the filter array prototype
-  //method to return all values not eqaul to
+  //create an empty array and use a for loop
+  //to copy every item EXCEPT the item we want to
+  //delete, then overwrite array in state
   const deleteFromArray = id => {
-    modifyEntries({
-      ...entries,
-      entryArray: entries.entryArray.filter(
-        //value does not equal entryArray[id]
-        entry => entry !== entries.entryArray[id]
-      )
-    });
+    let entryArrayCopy = [];
+    let itemToDelete = entries.entryArray[id];
+
+    for (let i = 0; i < entries.entryArray.length; i++) {
+      if (entries.entryArray[i] !== itemToDelete) {
+        entryArrayCopy.push(entries.entryArray[i]);
+      }
+    }
+
+    modifyEntries({ ...entries, entryArray: entryArrayCopy });
   };
 
   return (
